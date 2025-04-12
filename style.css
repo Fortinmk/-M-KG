@@ -1,0 +1,25 @@
+body {
+  background-color: black;
+  color: red;
+  font-family: monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.mystery-symbols {
+  font-size: 3rem;
+  animation: glow 2s infinite alternate;
+  letter-spacing: 0.2em;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px red, 0 0 20px darkred;
+  }
+  to {
+    text-shadow: 0 0 20px crimson, 0 0 40px darkred;
+  }
+}
