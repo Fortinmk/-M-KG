@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>∆Ω-Unit.404</title>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      overflow: hidden;
+      font-family: monospace;
+      color: #ff0022;
+    }
+    h1 {
+      font-size: 3em;
+      text-align: center;
+      margin-top: 50px;
+      text-shadow: 0 0 10px #ff0022, 0 0 20px #00ffcc;
+    }
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+    .msg {
+      text-align: center;
+      color: #00ffcc;
+      font-size: 1.2em;
+      margin-top: 30px;
+      letter-spacing: 3px;
+      text-shadow: 0 0 8px #00ffcc;
+    }
+    .btn {
+      display: block;
+      margin: 60px auto 0;
+      padding: 12px 24px;
+      background: transparent;
+      color: #ff0022;
+      border: 2px solid #ff0022;
+      font-size: 1em;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background: #ff0022;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="matrix"></canvas>
+
+<h1>∆Ω-Unit.404</h1>
+<p class="msg">𒀭𒈨𒌍𒊩 𒀸𒆳𒁀𒅆𒁍𒋛𒀭𒊑</p>
+<button class="btn">𒄿𒈠𒁀 (تفضل)</button>
+
+<script>
+  const canvas = document.getElementById('matrix');
+  const ctx = canvas.getContext('2d');
+
+  canvas.height = window.innerHeight;
+  canvas.width = window.innerWidth;
+
+  const letters = '010101010 ∆Ω∇Ψ #404# ██▓▒░'.split('');
+  const fontSize = 14;
+  const columns = canvas.width / fontSize;
+  const drops = Array(Math.floor(columns)).fill(1);
+
+  function draw() {
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = '#00ff00';
+    ctx.font = fontSize + 'px monospace';
+
+    for (let i = 0; i < drops.length; i++) {
+      const text = letters[Math.floor(Math.random() * letters.length)];
+      ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+      drops[i]++;
+      if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+        drops[i] = 0;
+      }
+    }
+  }
+
+  setInterval(draw, 33);
+</script>
+
+</body>
+</html>
