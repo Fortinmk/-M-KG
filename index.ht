@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>∆Ω-Unit.404</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #0f0;
+      font-family: 'Courier New', Courier, monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    header {
+      position: absolute;
+      top: 20px;
+      font-size: 2em;
+      color: #ff0022;
+      text-shadow: 0 0 10px #ff0022;
+    }
+
+    .mystic-button {
+      background: transparent;
+      border: 2px solid #ff0022;
+      color: #ff0022;
+      padding: 20px 40px;
+      font-size: 2em;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-radius: 16px;
+      box-shadow: 0 0 15px #ff0022;
+      font-family: 'Courier New', monospace;
+    }
+
+    .mystic-button:hover {
+      background-color: #ff0022;
+      color: black;
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #ff0022;
+    }
+
+    .hidden-message {
+      margin-top: 60px;
+      text-align: center;
+      font-size: 1.5em;
+      color: #ff0022;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      font-family: "monospace";
+      filter: drop-shadow(0 0 5px red);
+      animation: glitch 2s infinite;
+      display: none;
+    }
+
+    @keyframes glitch {
+      0% { transform: translate(0); }
+      20% { transform: translate(-1px, 1px); }
+      40% { transform: translate(1px, -1px); }
+      60% { transform: translate(-2px, 2px); }
+      80% { transform: translate(2px, -2px); }
+      100% { transform: translate(0); }
+    }
+  </style>
+</head>
+<body>
+  <header>∆Ω-Unit.404</header>
+  <button class="mystic-button">𒀭𒁕𒆠</button>
+  <div class="hidden-message">⟁ تحميل المحتوى الممنوع... ⟁</div>
+
+  <script>
+    const btn = document.querySelector('.mystic-button');
+    const message = document.querySelector('.hidden-message');
+
+    btn.addEventListener('click', () => {
+      message.style.display = 'block';
+      setTimeout(() => {
+        message.style.opacity = 1;
+      }, 100);
+    });
+  </script>
+</body>
+</html>
